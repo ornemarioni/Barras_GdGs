@@ -101,3 +101,5 @@ ENV/
 .mypy_cache/
 _imagenes/
 _data/
+Barras_Gs_/
+Barras_Gd_/
