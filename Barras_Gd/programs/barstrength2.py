@@ -2,8 +2,8 @@ import numpy as np
 import bines2 as bines 
 
 def a2max(m,x,y,nbin):
-    Rcil = np.sqrt(x**2 + y**2)
-    rbin = bines.rbin1(Rcil, nbin)
+    rcil = np.sqrt(x**2 + y**2)
+    rbin = bines.rbin1(rcil, nbin)
     
     A2v  = np.ndarray(nbin)
     phiv = np.ndarray(nbin)
@@ -11,10 +11,10 @@ def a2max(m,x,y,nbin):
     n = len(x)
     delta = n / nbin
     
-    rr = np.sort(Rcil)
+    r_sort = np.sort(rcil)
     
     for j in range(0, nbin):
-        mask, = np.where((Rcil > rr[j*delta]) & (Rcil <= rr[delta*(j+1)]))
+        mask, = np.where((rcil > r_sort[j*delta]) & (rcil <= r_sort[delta*(j+1)]))
         
         xn = x[mask]
         yn = y[mask]
@@ -38,8 +38,8 @@ def a2max(m,x,y,nbin):
 
 
 def a2(m,x,y,nbin):
-    Rcil = np.sqrt(x**2 + y**2)
-    rbin = bines.rbin1(Rcil, nbin)
+    rcil = np.sqrt(x**2 + y**2)
+    rbin = bines.rbin1(rcil, nbin)
     
     A2v  = np.ndarray(nbin)
     phiv = np.ndarray(nbin)
@@ -47,10 +47,10 @@ def a2(m,x,y,nbin):
     n = len(x)
     delta = n / nbin
     
-    rr = np.sort(Rcil)
+    r_sort = np.sort(rcil)
     
     for j in range(0, nbin):
-        mask, = np.where((Rcil > rr[j*delta]) & (Rcil <= rr[delta*(j+1)]))
+        mask, = np.where((rcil > r_sort[j*delta]) & (rcil <= r_sort[delta*(j+1)]))
         
         xn = x[mask]
         yn = y[mask]
