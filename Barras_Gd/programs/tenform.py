@@ -43,7 +43,7 @@ def tenf2d(x,y):
         T=np.matrix([[a00, a01], [a10, a11]])
         T=T/size                 
         return T
- 
+
 def tenfr2d(x,y):
         size=np.size(x)
         r2=x**2+y**2

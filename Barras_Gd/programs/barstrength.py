@@ -25,7 +25,7 @@ def a2max(m,x,y,nbin):
         a2=sum(m[kk]*np.cos(2*titaj))
         b2=sum(m[kk]*np.sin(2*titaj))
         A2v[j]=np.sqrt(a2**2+b2**2)/a0
-        phiv[j]=math.atan2(b2,a2)
+        phiv[j]=math.atan2(b2,a2)/2.
 
     A2max=max(A2v)
     kA2=np.argmax(A2v) 
@@ -54,7 +54,7 @@ def a2(m,x,y,nbin):
         a2=sum(m[kk]*np.cos(2*titaj))
         b2=sum(m[kk]*np.sin(2*titaj))
         A2v[j]=np.sqrt(a2**2+b2**2)/a0
-        phiv[j]=math.atan2(b2,a2)
+        phiv[j]=math.atan2(b2,a2)/2.
 
     A2max=max(A2v)
     kA2=np.argmax(A2v) 
