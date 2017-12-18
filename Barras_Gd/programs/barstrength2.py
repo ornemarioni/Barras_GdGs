@@ -14,7 +14,7 @@ def a2max(m,x,y,nbin):
     r_sort = np.sort(rcil)
     
     for j in range(0, nbin):
-        mask, = np.where((rcil > r_sort[j*delta]) & (rcil <= r_sort[delta*(j+1)]))
+        mask, = np.where((rcil > r_sort[j*(delta-1)]) & (rcil <= r_sort[(delta-1)*(j+1)]))
         
         xn = x[mask]
         yn = y[mask]
