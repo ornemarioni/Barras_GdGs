@@ -19,7 +19,7 @@ def tenf(x,y,z):
 def tenfr(x,y,z,m):
 
         r2=(x**2+y**2+z**2)
-        size=sum(m)
+        size=np.sum(m)
         a00=np.sum(m*x*x/r2)
         a01=np.sum(m*x*y/r2)
         a02=np.sum(m*x*z/r2)
