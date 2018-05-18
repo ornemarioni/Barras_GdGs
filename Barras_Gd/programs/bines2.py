@@ -9,9 +9,13 @@ def rbin1(x, nbin):
     
     delta = n / nbin
     
-    med = np.ndarray(nbin)
+    med = np.zeros(nbin)
+    
+    nodos    = np.zeros(nbin+1)
+    nodos[0] = x_sort[0]
     
     for i in range(0,nbin):
-        med[i] = np.median(x_sort[i*delta:(i+1)*delta])
+        med[i]     = np.median(x_sort[i*delta:(i+1)*delta])
+        nodos[i+1] = x_sort[i*delta:(i+1)*delta][-1]
     
-    return med
+    return med, nodos
