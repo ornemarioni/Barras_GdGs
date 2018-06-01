@@ -98,7 +98,7 @@ def rot1(m,x,y,z,vx,vy,vz,corte):
         vxn=e1x*vx+e1y*vy+e1z*vz
         vyn=e2x*vx+e2y*vy+e2z*vz
         vzn=e3x*vx+e3y*vy+e3z*vz
-        
+
         return e1x,e2x,e3x,e1y,e2y,e3y,e1z,e2z,e3z 
 
 
