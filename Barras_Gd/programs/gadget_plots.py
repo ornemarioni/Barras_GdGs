@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import h5py
@@ -8,8 +8,6 @@ import barstrength2 as strng
 import time_conversion as tiempo
 import sphviewer as sph
 
-matplotlib.rcParams['text.usetex'] = True
-matplotlib.rcParams['text.latex.unicode'] = True
 
 h=0.732
 G = 4.299e-6
@@ -21,7 +19,7 @@ omega0 = omega_lambda + omega_matter
 vector2 = ('M31','MW','M33')
 vector = ('00','01','03')
 vector3 = ('A','B')
-carpeta = ('9in1_M31/','9in1_MW/')
+carpeta = ('9in1_M31_test/','9in1_MW/')
 
 
 #path = 'home/ornela/SimCLUES/'
@@ -36,8 +34,8 @@ path = '/mnt/is2/alejandro/ornella/'
 snapshot=range(496,0,-1)
 for isnap in snapshot:
     snap = h5py.File(path + 'outputs_1/snap_'+str('%03d'%isnap)+'.h5py', 'r')
-    print (isnap)
-    for i in range(0,2):
+    print isnap
+    for i in range(0,1):
         cm   = snap['subhalo_0'+ str('%s' %vector[i])+ '/Center'].value
         r200 = snap['subhalo_0'+ str('%s' %vector[i])+ '/R200'].value
 
@@ -80,7 +78,7 @@ for isnap in snapshot:
         r_sort = np.sort(r[limit])
         r_indice = np.argsort(r[limit])
 
-        Mc_str = cumsum((mstr[limit])[r_indice])
+        Mc_str = np.cumsum((mstr[limit])[r_indice])
         M_gal = Mc_str[-1]
 
         #------------------ calculamos M90------------------------------------------
@@ -431,6 +429,6 @@ for isnap in snapshot:
         
         path2 = '/home/omarioni/Barras_GdGs/Barras_Gd/_imagenes/snapshotsGD/'
         fig.savefig(path2 + str('%s'%carpeta[i]) + str('%s' %vector2[i])+'_'+str('%s' %isnap)+'.png',
-                    dpi = 100, xxbox_inches='tight')
-#         plt.show()
+                    dpi = 100, format ='png',  xxbox_inches='tight')        
+        
         plt.close()

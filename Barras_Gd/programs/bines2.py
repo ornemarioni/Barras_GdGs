@@ -19,3 +19,6 @@ def rbin1(x, nbin):
         nodos[i+1] = x_sort[i*delta:(i+1)*delta][-1]
     
     return med, nodos
+
+
+###aca se agregaron los nodos,tengo que modificar los programas que usan esto 
