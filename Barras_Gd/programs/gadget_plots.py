@@ -1,4 +1,3 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import h5py
@@ -31,7 +30,7 @@ aexp = atime[:,2]
 
 path = '/mnt/is2/alejandro/ornella/'
 
-snapshot=range(496,0,-1)
+snapshot=range(496,490,-1)
 for isnap in snapshot:
     snap = h5py.File(path + 'outputs_1/snap_'+str('%03d'%isnap)+'.h5py', 'r')
     print isnap
@@ -148,7 +147,7 @@ for isnap in snapshot:
         # ----escala de colores que te guste (http://matplotlib.org/examples/color/colormaps_reference.html)---
         cmap='jet'
 
-#         nb1 = 10
+        #nb1 = 5
         nb1 = 100 
 
         particles=sph.Particles(pos[:3,corte],mstr[corte]*1e10,nb=nb1)
