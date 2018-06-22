@@ -39,7 +39,7 @@ def a2max(m,x,y,nbin):
 
 def a2(m,x,y,nbin):
     rcil = np.sqrt(x**2 + y**2)
-    rbin = bines.rbin1(rcil, nbin)
+    rbin, nodos = bines.rbin1(rcil, nbin)
     
     A2v  = np.ndarray(nbin)
     phiv = np.ndarray(nbin)
