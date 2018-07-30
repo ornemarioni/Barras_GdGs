@@ -1,4 +1,3 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import h5py
@@ -148,8 +147,13 @@ for isnap in snapshot:
         # ----escala de colores que te guste (http://matplotlib.org/examples/color/colormaps_reference.html)---
         cmap='jet'
 
+<<<<<<< HEAD
         nb1 = 10
         #nb1 = 100 
+=======
+        #nb1 = 5
+        nb1 = 100 
+>>>>>>> b29321f0c229ffcfec5b2b43354097e24d056487
 
         particles=sph.Particles(pos[:3,corte],mstr[corte]*1e10,nb=nb1)
         escena=sph.Scene(particles)

@@ -18,7 +18,7 @@ path = '/mnt/sersic2/omarioni/'
 snapshot = np.loadtxt(path + 'Gasoline/snapshots.txt', dtype='string')
 
 
-for j in range(len(snapshot)-1,len(snapshot)-2,-1):
+for j in range(len(snapshot)-1,len(snapshot)-3,-1):
     snap = h5py.File(path + 'Gasoline/outputs2/snap_'+str('%s'%snapshot[j])+'.h5py', 'r')
 
     print snapshot[j]
