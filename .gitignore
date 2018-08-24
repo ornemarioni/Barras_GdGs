@@ -103,3 +103,5 @@ _imagenes/
 _data/
 Barras_Gs_/
 Barras_Gd_/
+*.png
+*.dat
