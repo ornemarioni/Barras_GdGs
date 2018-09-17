@@ -34,14 +34,24 @@ for l in range(0,3):
     time_aux = np.zeros(len(ID))
 
     k = 0
-    for i in range(0,len(ID)):
+    
+    time_aux[0] = time2[0]
+    
+    for i in range(1,len(ID)):
         for j in range(k, len(time)):
-            if sort_tform[i] < time[j]:
-                time_aux[i] = time[j]
+            if sort_tform[i] < time2[j]:
+                time_aux[i] = time2[j]
     #             print time_aux[i]
-                if time_aux[i] < time_aux[i-1]:
+                if time_aux[i] > time_aux[i-1]:
                     k = k + 1
+
                 break
+                
+            if j == len(time)-1:
+                time_aux[i] = time2[j]
+                break
+    
+    
 
     snapshot = np.loadtxt('/z/omarioni/snapshots.txt', dtype='string') #SNAPSHOTS
     isnap = snapshot[::-1]
@@ -56,7 +66,7 @@ for l in range(0,3):
         mask, = np.where(time_aux == time[i])
 
         if len(mask) == 0:
-            break
+            continue
 
         s = pynbody.load(path + str('%s'%isnap[i])+'/WMAP3.CLUES.HR.00'+ str('%s'%isnap[i]))
 
@@ -77,7 +87,7 @@ for l in range(0,3):
         data[:,1] = rstr
         data[:,2] = tf[particles]
 
-        np.savetxt(archivo, data, fmt=('%10d','%12.6f','%12.6f'))
+        np.savetxt(archivo, data, fmt=('%12d','%12.6f','%12.6f'))
 
     archivo.close()
 
