@@ -43,11 +43,16 @@ for l in range(0,3):
     
     time_aux = np.zeros(len(ID))
 
-    k = 1
+    k = 0
+    
     for i in range(0,len(ID)):
         for j in range(k, len(time)):
-            if sort_tform[i] > time[j]:
-                time_aux[i] = time[j-1]
+            if sort_tform[i] > time[0]:
+                time_aux[i] = time[0]
+                break
+                
+            if sort_tform[i] < time[j]:
+                time_aux[i] = time[j]
     #             print time_aux[i]
                 if time_aux[i] < time_aux[i-1]:
                     k = k + 1

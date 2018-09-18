@@ -18,8 +18,8 @@ for l in range(0,3):
 
     sort = np.argsort(tform)
 
-    sort_tform = tform[sort]
-    sort_ID    = ID[sort]
+    sort_tform = tform[sort][::-1]
+    sort_ID    = ID[sort][::-1]
 
 #     file2 = np.loadtxt(path2 + 'M33_masscenter.dat')
     file2 = np.loadtxt(path2 + str('%s'%vector2[l]) +'_masscenter.dat')
@@ -28,31 +28,25 @@ for l in range(0,3):
     xcm  = file2[:,1]
     ycm  = file2[:,2]
     zcm  = file2[:,3]
-
-    time2 = time[::-1]
     
     time_aux = np.zeros(len(ID))
 
     k = 0
     
-    time_aux[0] = time2[0]
-    
-    for i in range(1,len(ID)):
+    for i in range(0,len(ID)):
         for j in range(k, len(time)):
-            if sort_tform[i] < time2[j]:
-                time_aux[i] = time2[j]
-    #             print time_aux[i]
-                if time_aux[i] > time_aux[i-1]:
-                    k = k + 1
-
+            if sort_tform[i] > time[0]:
+                time_aux[i] = time[0]
                 break
                 
-            if j == len(time)-1:
-                time_aux[i] = time2[j]
+            if sort_tform[i] < time[j]:
+                time_aux[i] = time[j]
+    #             print time_aux[i]
+                if time_aux[i] < time_aux[i-1]:
+                    k = k + 1
                 break
+                
     
-    
-
     snapshot = np.loadtxt('/z/omarioni/snapshots.txt', dtype='string') #SNAPSHOTS
     isnap = snapshot[::-1]
 
@@ -60,6 +54,7 @@ for l in range(0,3):
     archivo = open(path2 + str('%s'%vector2[l]) +'_tform_particles.dat', 'a')
     
     time_aux = time_aux[::-1]
+    
     
     for i in range(0, len(time)):
 
@@ -74,7 +69,7 @@ for l in range(0,3):
         IDs  = s.star['iord']
         tf   = s.star['tform'].in_units('Gyr')
 
-        particles = np.isin(IDs, sort_ID[mask])
+        particles = np.isin(IDs, np.int_(sort_ID[mask]))
 
         xstr = (pstr[:,0][particles]-xcm[i])
         ystr = (pstr[:,1][particles]-ycm[i])
@@ -90,5 +85,3 @@ for l in range(0,3):
         np.savetxt(archivo, data, fmt=('%12d','%12.6f','%12.6f'))
 
     archivo.close()
-
-            
