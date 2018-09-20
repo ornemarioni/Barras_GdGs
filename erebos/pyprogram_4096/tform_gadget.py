@@ -1,7 +1,7 @@
 import numpy as np
 import gadget_reader as gd
 import time_conversion as tiempo
-
+from joblib import Parallel, delayed
 
 # Parametros cosmologicos
 #--------------------------------------------------------------------------
@@ -23,7 +23,8 @@ aexp  = aa[:,2]
 path  = '/srv/cosmdatc/clues/B64_WM3_186592/LG/GAS_SFR/4096/SNAPS/snap_'
 
 
-for l in range(0,3):
+def sarasa(l):
+# for l in range(0,3):
     
     file = np.loadtxt(path2 + str('%s'%vector2[l]) +'_tform_z0.dat')
     ID    = file[:,0]
@@ -43,16 +44,21 @@ for l in range(0,3):
     
     time_aux = np.zeros(len(ID))
 
-    k = 0
+    k = 1
     
     for i in range(0,len(ID)):
+        if sort_tform[i] > time[0]:
+            time_aux[i] = time[0]
+            continue
+            
+        if sort_tform[i] < time[-1]:
+            time_aux[i] = time[-1]
+            continue
+            
         for j in range(k, len(time)):
-            if sort_tform[i] > time[0]:
-                time_aux[i] = time[0]
-                break
-                
-            if sort_tform[i] < time[j]:
-                time_aux[i] = time[j]
+            
+            if  sort_tform[i] > time[j]:
+                time_aux[i] = time[j-1]
     #             print time_aux[i]
                 if time_aux[i] < time_aux[i-1]:
                     k = k + 1
@@ -97,3 +103,9 @@ for l in range(0,3):
         np.savetxt(archivo, data, fmt=('%15d','%12.6f','%12.6f'))
         
     archivo.close()
+    
+
+with Parallel(n_jobs=3, prefer="threads") as par:
+    par(delayed(sarasa)(ll)for ll in range(0,3))
+
+  
