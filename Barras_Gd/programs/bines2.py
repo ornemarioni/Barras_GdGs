@@ -9,6 +9,8 @@ def rbin1(x, nbin):
     
     delta = n / nbin
     
+#     print delta
+    
     med = np.zeros(nbin)
     
     nodos    = np.zeros(nbin+1)
