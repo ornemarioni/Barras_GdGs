@@ -31,3 +31,4 @@ def Vc_bin(r, m, nbin,G = 4.299e-6):
         Vcir[i] = np.sqrt(G * M / med[i])
 
     return Vcir, med
+
