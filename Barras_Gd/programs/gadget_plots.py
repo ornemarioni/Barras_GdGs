@@ -345,9 +345,9 @@ for isnap in snapshot:
         vmax=7.5
 
         # ----escala de colores que te guste (http://matplotlib.org/examples/color/colormaps_reference.html)---
-        cmap='hot'
+        cmap='viridis'
 
-        #nb1 = 300 
+        nb1 = 100 
 
         particles=sph.Particles(pos2[:3,corte],mdrk[corte]*1e10,nb=nb1)
         escena=sph.Scene(particles)
@@ -431,8 +431,8 @@ for isnap in snapshot:
         # ax[1,0].set_title('GADGET', loc='center', fontsize=30)
         ax[2,2].text(45, -40,'z='+str('%.3f'%z), fontsize=25, color='yellow', ha='right', va='center') 
         
-        path2 = '/home/ornela/Escritorio/'
-	#path2 = '/home/omarioni/Barras_GdGs/Barras_Gd/_imagenes/snapshotsGD/'
+#         path2 = '/home/ornela/Escritorio/'
+	path2 = '/home/omarioni/Barras_GdGs/Barras_Gd/_imagenes/snapshotsGD/'
         fig.savefig(path2 + str('%s'%carpeta[i]) + str('%s' %vector2[i])+'_'+str('%s' %isnap)+'.png',
                     dpi = 100, format ='png',  xxbox_inches='tight')        
         

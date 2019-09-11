@@ -32,9 +32,9 @@ export MKL_NUM_THREADS=56
 
 ### Cargar los módulos para la tarea
 # FALTA: Agregar los módulos necesarios
-module load clemente anaconda2/5.0.0 
+## module load clemente anaconda2/5.0.0 
 
 ### Largar el programa
 # FALTA: Cambiar el nombre del programa
-srun python Evol_strdrk_simulaciones.py 
+srun python 9in1_plotmaker.py 
 
