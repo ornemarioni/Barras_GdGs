@@ -36,5 +36,5 @@ export MKL_NUM_THREADS=56
 
 ### Largar el programa
 # FALTA: Cambiar el nombre del programa
-srun python 9in1_plotmaker.py 
+srun python 9in1_plotmakerGS.py 
 

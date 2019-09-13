@@ -170,7 +170,7 @@ for isnap in snapshot:
     ax[0,0].set_yticks([])
     ax[0,0].set_yticklabels([])
     ax[0,0].set_xticklabels([])
-    ax[0,0].text(-4.5, 4,'GADGET-'+str('%s'%vector3[i]), fontsize=25, color='yellow', ha='left', va='center') 
+    ax[0,0].text(-4.5, 4, str('%s'%vector3[i])+'-GADGET2', fontsize=25, color='yellow', ha='left', va='center') 
     ax[0,0].set_title('XY', loc='center', fontsize=25)
     ax[0,0].annotate("",xy=(-4, -4), xycoords='data',xytext=(-1, -4),textcoords='data',
                  ha='center', va='center', 
