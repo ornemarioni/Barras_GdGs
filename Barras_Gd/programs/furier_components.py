@@ -29,6 +29,6 @@ def am(m,x,y,nbin, modo):
         phiv[j] = np.arctan2(bm,am) / 2.
         
 
-    return A2v, phiv, rbin
+    return Amv, phiv, rbin
 
 
