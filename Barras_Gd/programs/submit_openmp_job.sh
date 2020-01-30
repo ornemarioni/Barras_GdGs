@@ -4,7 +4,7 @@
 ### (aunque parezcan estar comentadas)
 
 ### Nombre de la tarea
-#SBATCH --job-name=sph_GD
+#SBATCH --job-name=12in1GS
 
 ### Cola de trabajos a la cual enviar.
 #SBATCH --partition=batch
@@ -18,7 +18,7 @@
 #SBATCH --cpus-per-task=56
 
 ### Tiempo de ejecucion. Formato dias-horas:minutos.
-#SBATCH --time 0-10:00
+#SBATCH --time 0-8:00
 
 ### Script que se ejecuta al arrancar el trabajo
 
@@ -36,5 +36,5 @@ export MKL_NUM_THREADS=56
 
 ### Largar el programa
 # FALTA: Cambiar el nombre del programa
-srun python DM_test_stefan_GD.py 
+srun python 12in1_plots_GS.py 
 

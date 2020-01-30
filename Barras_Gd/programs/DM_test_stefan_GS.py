@@ -91,7 +91,8 @@ for j in range(59,0,-1):
     vy = v_y - vycm
     vz = v_z - vzcm
 
-    e1x,e2x,e3x,e1y,e2y,e3y,e1z,e2z,e3z = rot.rot1(mstr,xstr,ystr,zstr,vx,vy,vz,3*aexp)
+    if j==59:
+        e1x,e2x,e3x,e1y,e2y,e3y,e1z,e2z,e3z = rot.rot1(mstr,xstr,ystr,zstr,vx,vy,vz,3*aexp)
 
     ##posiciones de particulas que se quiere graficar
     ##como lo de arriba me da los versores hago las posiciones con esto 
@@ -127,7 +128,7 @@ for j in range(59,0,-1):
     #----------------------------------------------------------------------
 
     #---------------------generador del grafico3-----------------
-    rl= 100   
+    rl= 50   
     corte,=np.where((xn_drk <rl) & (yn_drk <rl) & (zn_drk <rl) & (xn_drk >-rl) & (yn_drk >-rl) & (zn_drk >-rl))
 
 
@@ -150,10 +151,10 @@ for j in range(59,0,-1):
     rend.set_logscale()
 
     ax[1,0].imshow(rend.get_image(),extent=extent,origin='lower',cmap=cmap, vmin=vmin, vmax= vmax)
-    ax[1,0].set_xlim(-100,100)
-    ax[1,0].set_ylim(-100,100)
-    ax[1,0].set_xticks([-100,-50,0,50,100])
-    ax[1,0].set_yticks([-100,-50,0,50,100])
+    ax[1,0].set_xlim(-50,50)
+    ax[1,0].set_ylim(-50,50)
+    ax[1,0].set_xticks([-50,-25,0,25,50])
+    ax[1,0].set_yticks([-50,-25,0,25,50])
     ax[1,0].set_xlabel('x',fontsize=28)
     ax[1,0].set_ylabel('y',fontsize=28)
     ax[1,0].minorticks_on()
@@ -180,18 +181,18 @@ for j in range(59,0,-1):
 
 
     ax[0,0].imshow(rend.get_image(),extent=extent,origin='lower',cmap=cmap, vmin=vmin, vmax= vmax)
-    ax[0,0].set_xlim(-100,100)
-    ax[0,0].set_ylim(-100,100)
-    ax[0,0].set_xticks([-100,-50,0,50,100])
-    ax[0,0].set_yticks([-50,0,50,100])
+    ax[0,0].set_xlim(-50,50)
+    ax[0,0].set_ylim(-50,50)
+    ax[0,0].set_xticks([-50,-25,0,25,50])
+    ax[0,0].set_yticks([-25,0,25,50])
     ax[0,0].set_xticklabels([])
-    ax[0,0].set_yticklabels([-50,0,50,100])
+    ax[0,0].set_yticklabels([-25,0,25,50])
     ax[0,0].set_ylabel('z',fontsize=28)
     ax[0,0].minorticks_on()
     ax[0,0].tick_params( labelsize=24)
     ax[0,0].tick_params('both', length=10, width=2,which='minor', direction='in', right=True,top=True)
     ax[0,0].tick_params('both', length=15, width=2,which='major', direction='in', right=True,top=True)
-    ax[0,0].text(-85, 82,'z='+str('%.3f'%z), fontsize=25, color='yellow', ha='left', va='center') 
+    ax[0,0].text(-45, 45,'z='+str('%.3f'%z), fontsize=25, color='yellow', ha='left', va='center') 
     ax[0,0].add_patch(plt.Circle((0,0),radius=rgal,ec='k',fc=None,ls='--',lw=2.5, fill=False))
     ax[0,0].set_title('B-GASOLINE',fontsize=25,loc='center')
 
@@ -205,18 +206,18 @@ for j in range(59,0,-1):
 
 
     ax[0,1].imshow(rend.get_image(),extent=extent,origin='lower',cmap=cmap, vmin=vmin, vmax= vmax)
-    ax[0,1].set_xlim(-100,100)
-    ax[0,1].set_ylim(-100,100)
-    ax[0,1].set_xticks([-50,0,50,100])
-    ax[0,1].set_yticks([-100,-50,0,50,100])
+    ax[0,1].set_xlim(-50,50)
+    ax[0,1].set_ylim(-50,50)
+    ax[0,1].set_xticks([-25,0,25,50])
+    ax[0,1].set_yticks([-50,-25,0,25,50])
     ax[0,1].set_yticklabels([])
-    ax[0,1].set_xticklabels([-50,0,50,100])
+    ax[0,1].set_xticklabels([-25,0,25,50])
     ax[0,1].minorticks_on()
     ax[0,1].tick_params( labelsize=24)
     ax[0,1].tick_params('both', length=10, width=2,which='minor', direction='in', right=True,top=True)
     ax[0,1].tick_params('both', length=15, width=2,which='major', direction='in', right=True,top=True)
     ax[0,1].set_xlabel('y',fontsize=28)
-    ax[0,1].text(85, 82, str('%.3f'%time)+'Gyr', fontsize=25, color='yellow', ha='right', va='center') 
+    ax[0,1].text(45, 45, str('%.3f'%time)+'Gyr', fontsize=25, color='yellow', ha='right', va='center') 
     ax[0,1].add_patch(plt.Circle((0,0),radius=rgal,ec='k',fc=None,ls='--',lw=2.5, fill=False))
 
 
@@ -224,7 +225,7 @@ for j in range(59,0,-1):
     
     plt.show(False)
     
-    path2 = '/home/omarioni/Barras_GdGs/Barras_Gs/_imagenes/test_STEFAN/'
+    path2 = '/home/omarioni/Barras_GdGs/Barras_Gs/_imagenes/test_STEFAN_50kpc/'
     fig.savefig(path2 + str('%s' %vector2[i])+'_'+str('%s' %snapshot[j])+'.png',
                 dpi = 100, xxbox_inches='tight')
     plt.close()

@@ -1,8 +1,0 @@
-/home/omarioni/miniconda2/lib/python2.7/site-packages/h5py/_hl/dataset.py:313: H5pyDeprecationWarning: dataset.value has been deprecated. Use dataset[()] instead.
-  "Use dataset[()] instead.", H5pyDeprecationWarning)
-1024
-Traceback (most recent call last):
-  File "9in1_plotmakerGS.py", line 70, in <module>
-    Mc_str = cumsum((mstr[limit])[r_indice])
-NameError: name 'cumsum' is not defined
-srun: error: clemente03: task 0: Exited with exit code 1
