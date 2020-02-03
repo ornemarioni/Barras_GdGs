@@ -91,7 +91,7 @@ for j in range(59,0,-1):
     vy = v_y - vycm
     vz = v_z - vzcm
 
-    if snapshot[j]==1024:
+    if j==59:
         e1x,e2x,e3x,e1y,e2y,e3y,e1z,e2z,e3z = rot.rot1(mstr,xstr,ystr,zstr,vx,vy,vz,3*aexp)
 
     ##posiciones de particulas que se quiere graficar
@@ -156,7 +156,7 @@ for j in range(59,0,-1):
     ax[0,0].set_yticks([])
     ax[0,0].set_yticklabels([])
     ax[0,0].set_xticklabels([])
-    ax[0,0].text(-4.5, 4, str('%s'%vector3[i])+'-GADGET2', fontsize=25, color='yellow', ha='left', va='center') 
+    ax[0,0].text(-4.5, 4, str('%s'%vector3[i])+'-GASOLINE', fontsize=25, color='yellow', ha='left', va='center') 
     ax[0,0].set_title('XY', loc='center', fontsize=25)
     ax[0,0].annotate("",xy=(-4, -4), xycoords='data',xytext=(-1, -4),textcoords='data',
                  ha='center', va='center', 
@@ -436,7 +436,7 @@ for j in range(59,0,-1):
     plt.show(False)
     
     path2 = '/home/omarioni/Barras_GdGs/Barras_Gs/_imagenes/test_STEFAN/12in1_MW_GS/'
-    fig.savefig(path2 + str('%s' %vector2[i])+'_'+str('%s' %isnap)+'.png',
+    fig.savefig(path2 + str('%s' %vector2[i])+'_'+str('%s' %snapshot[j])+'.png',
                 dpi = 100, xxbox_inches='tight')
 
     plt.close()
