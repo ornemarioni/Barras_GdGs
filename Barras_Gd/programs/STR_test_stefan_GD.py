@@ -150,8 +150,8 @@ for isnap in snapshot:
 
 
     #-----rango que tiene la escala  de colores-----
-    vmin=2.2
-    vmax=6.2
+    vmin=0.9
+    vmax=6.7
 
     # ----escala de colores que te guste (http://matplotlib.org/examples/color/colormaps_reference.html)---
     cmap='magma'
