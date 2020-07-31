@@ -9,7 +9,7 @@ def rot1(m,x,y,z,vx,vy,vz,corte):
         jy = sum(m[kk]*(z[kk]*vx[kk]-x[kk]*vz[kk]))
         jz = sum(m[kk]*(x[kk]*vy[kk]-y[kk]*vx[kk]))
 
-        j = np.sqrt(jx**2+jy**2+jz**2)
+        j = np.sqrt(jx**2 + jy**2 + jz**2)
 
         rjx = jx/j
         rjy = jy/j
