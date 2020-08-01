@@ -64,4 +64,4 @@ def elipsoide(x,y,z,vx,vy,vz,radio,phi=0, nbin=20):
 
         omegabar = finterp(radio)
     
-    return omegabar, xn, yn, zn, autovec
+    return omegabar, xn, yn, zn, autovec, A, B, C

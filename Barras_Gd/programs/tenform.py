@@ -12,7 +12,7 @@ def tenf(x,y,z):
         a21=np.sum(z*y)
         a22=np.sum(z*z)
 
-        T=np.matrix([[a00, a01, a02], [a10, a11, a12], [a20, a21, a22]])
+        T=np.array([[a00, a01, a02], [a10, a11, a12], [a20, a21, a22]])
         T=T/size                 
         return T
 
