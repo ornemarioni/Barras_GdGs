@@ -33,8 +33,9 @@ def a2max(m,x,y,nbin):
     A2max   = A2v[A2max_arg]
     rbinmax = rbin[A2max_arg]
     phimax  = phiv[A2max_arg]
+    phimed  = np.mean([phiv[A2max_arg],phiv[A2max_arg+1],phiv[A2max_arg-1],phiv[A2max_arg+2],phiv[A2max_arg-2]])
  
-    return A2max, rbinmax, phimax
+    return A2max, rbinmax, phimax, phimed 
 
 
 def a2(m,x,y,nbin):
