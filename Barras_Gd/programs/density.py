@@ -7,7 +7,7 @@ import bines2
 def surf_density(R,m,nbin):
     
     if len(R) != len(m):
-        print 'Error: vector lengths do not match'
+        print ('Error: vector lengths do not match')
         
     med, nodos = bines2.rbin1(R, nbin)
     
@@ -28,7 +28,7 @@ def surf_density(R,m,nbin):
 def surf_density2(R,m,nbin,nmin,nmax):
     
     if len(R) != len(m):
-        print 'Error: vector lengths do not match'
+        print ('Error: vector lengths do not match')
     
     mass, nodos = np.histogram(R, bins=nbin, range=[nmin,nmax], weights=m)
     

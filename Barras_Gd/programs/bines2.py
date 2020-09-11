@@ -7,9 +7,9 @@ def rbin1(x, nbin):
     
     n = len(x)
     
-    delta = n / nbin
+    delta = np.int(n / nbin)
     
-#     print delta
+#     print (delta)
     
     med = np.zeros(nbin)
     
