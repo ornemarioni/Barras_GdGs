@@ -1,11 +1,10 @@
 ## Calculamos las particulas dentro de un elipsoide de semieje mayor = radio
 ## Alineamos el eje menor mas o menos con la direccion del momento angular de forma tal que se cumpla el producto cruz entre los tres autovectores,
-from goto import with_goto
 import numpy as np
 import tenform as ten
 import bines2 as bine
 import scipy.interpolate as sint
-@with_goto
+
 def elipsoide2(x,y,z,vx,vy,vz,m,radio, nbin=20):
     
 
